@@ -1,4 +1,8 @@
-
+/*
+This is from Chapter 2 of Black Hat Go
+Most of this (if not all) code has been copied from there
+I may modify it slightly but credit for the code goes to the author
+*/
 package main
 
 import (
