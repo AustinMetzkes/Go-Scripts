@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 )
-
+ 
 var (
 	newFile *os.File
 	err     error
