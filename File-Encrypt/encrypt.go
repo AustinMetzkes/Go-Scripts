@@ -8,11 +8,11 @@ import (
 	"os"
 	"strings"
 )
- 
+
 var (
 	newFile *os.File
 	err     error
-	scan		string
+	scan    string
 )
 
 var (
@@ -41,7 +41,6 @@ func scanner() {
 	scan = strings.Replace(scan, "\n", "", -1)
 	fmt.Println(scan)
 }
-
 
 func NewFile() {
 	//Sfmt.Printf("Name and path for new file")
