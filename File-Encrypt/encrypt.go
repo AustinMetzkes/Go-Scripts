@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"strings"
+	//"strconv"
 )
 
 var (
@@ -19,8 +20,8 @@ var (
 	fileInfo os.FileInfo
 )
 
-func getInfo() {
-	fileInfo, err = os.Stat("test.txt")
+func getInfo(file string) {
+	fileInfo, err = os.Stat(file)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -33,21 +34,22 @@ func getInfo() {
 	fmt.Printf("System Info: %+v\n\n", fileInfo.Sys())
 }
 
-func scanner() {
+func scanner() string {
 	fmt.Printf("Name and path for new file: ")
 	reader := bufio.NewReader(os.Stdin)
 	//var path string
 	scan, _ := reader.ReadString('\n')
 	scan = strings.Replace(scan, "\n", "", -1)
-	fmt.Println(scan)
+	file := scan
+	return file
 }
 
 func NewFile() {
 	//Sfmt.Printf("Name and path for new file")
-	scanner()
+	file := scanner()
 	//path := strings.Replace(scan, "\n", "", -1)
-	fmt.Println(scan)
-	newFile, err = os.Create(scan)
+	fmt.Println("The file you are creating is", file)
+	newFile, err = os.Create(file)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -81,7 +83,7 @@ func main() {
 		NewFile()
 		break
 	case '2':
-		getInfo()
+		getInfo(file)
 	case '3':
 		truncate()
 		break
